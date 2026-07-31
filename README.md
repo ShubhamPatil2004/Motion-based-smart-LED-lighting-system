@@ -1,63 +1,48 @@
-Motion-based-smart-LED-lighting-system
-An ESP32-based smart lighting system that automatically controls LED brightness using PIR motion detection and LDR-based ambient light sensing. Features three-stage PWM dimming, adjustable timing and light thresholds via potentiometers, and a custom PCB design for energy-efficient, intelligent lighting automation.
+# Motion-Based Smart LED Lighting System
 
-Features
-Human motion detection using PIR sensor
+An **ESP32-based smart lighting system** that automatically controls LED brightness using **PIR motion detection** and **LDR-based ambient light sensing**. The system features **three-stage PWM dimming**, adjustable timing and light thresholds using potentiometers, and a compact custom PCB design for energy-efficient lighting automation.
 
-Ambient light sensing using LDR
+## Features
 
-Energy-efficient lighting control
+* Human motion detection using a PIR sensor
+* Ambient light sensing using an LDR
+* Automatic energy-efficient lighting control
+* Three-stage PWM brightness control:
 
-Three-stage PWM dimming
+  * 100% brightness
+  * 50% brightness
+  * 20% brightness
+  * Automatic OFF
+* Adjustable lighting duration using potentiometers
+* Adjustable ambient light threshold
+* Compact PCB implementation
 
-100%
-50%
-20%
-Adjustable timing using potentiometers
+## Hardware Used
 
-Adjustable light threshold
+* ESP32 DevKit V1
+* HC-SR501 PIR Motion Sensor
+* LDR (Light Dependent Resistor)
+* 3 × 10 kΩ Potentiometers
+* LED
+* Resistors
+* General Purpose PCB
+* USB Power Supply
 
-Compact PCB implementation
+## Working Principle
 
-Hardware
-ESP32 DevKit V1
+The ESP32 continuously monitors the **PIR sensor** and **LDR**.
 
-PIR Sensor (HC-SR501)
+* If **motion is detected** and the **ambient light is below the set threshold**, the LED turns **ON**.
+* The LED brightness then gradually decreases:
 
-LDR
+  * **100% → 50% → 20% → OFF**
+* If new motion is detected while the LED is dimming, the timer resets and the LED returns to **100% brightness**.
 
-3 × 10k Potentiometers
+## Future Improvements
 
-LED
-
-Resistors
-
-General Purpose PCB
-
-USB Power Supply
-
-Working Principle
-The ESP32 continuously monitors:
-
-PIR Sensor
-LDR
-If:
-
-Motion = Detected
-AND
-Ambient Light = Dark
-The LED turns ON.
-
-Brightness decreases gradually:
-
-100% → 50% → 20% → OFF
-
-If new motion is detected during dimming, the timer resets and the LED returns to full brightness.
-
-Future Improvements
-IoT Monitoring
-Mobile App
-MQTT
-Blynk
-Home Assistant
-Machine Learning based occupancy prediction
+* IoT monitoring and remote control
+* Mobile application
+* MQTT integration
+* Blynk integration
+* Home Assistant support
+* Machine learning-based occupancy prediction
